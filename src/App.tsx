@@ -1,5 +1,7 @@
+import TeamSelection from "./TeamSelection";
+
 function App() {
-  return <h1>Baseball Game</h1>;
+  return <TeamSelection />;
 }
 
 export default App;

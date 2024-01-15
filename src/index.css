@@ -62,3 +62,22 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+:root {
+  --red: #df0606;
+  --brick: #910808;
+  --brown: #613a05;
+  --orange: #f96a20;
+  --yellow: #f9cb06;
+  --gold: #bfa740;
+  --green: #248e0b;
+  --teal: #16999d;
+  --sky: #20c0f9;
+  --royal: #2039df;
+  --navy: #211b7e;
+  --purple: #6f0fbd;
+  --pink: #f25ae9;
+  --black: #000000;
+  --grey: #a6a6a6;
+  --white: #ffffff;
+}

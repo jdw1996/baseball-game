@@ -1,12 +1,8 @@
 import "./TeamSelection.css";
-import { useState } from "react";
 import UsaMap from "./assets/usa-map.svg";
 import { teams } from "./teams";
 
 function TeamSelection() {
-  const [team1, setTeam1] = useState<string | null>(null);
-  const [team2, setTeam2] = useState<string | null>(null);
-
   return (
     <div id="map-wrapper">
       <img alt="Map of the United States" id="usa-map" src={UsaMap} />

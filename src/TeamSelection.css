@@ -1,7 +1,18 @@
+.team-select-wrapper {
+  margin: 50px auto;
+  width: 90%;
+}
+
+.team-select-heading {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2rem;
+  text-align: center;
+}
+
 #map-wrapper {
   position: relative;
-  width: 90%;
-  margin: 50px auto;
+  margin: 20px;
 }
 
 #usa-map {
@@ -10,26 +21,48 @@
 
 .team-wrapper {
   position: absolute;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
+  /* Don't let wrappers cover up other teams' markers */
+  height: 0;
+  width: 0;
 }
 
 .team-marker {
   background-color: white;
-  height: 3rem;
-  width: 3rem;
-  text-align: center;
+  height: 3vw;
+  width: 3vw;
   border-radius: 50%;
-  border: 3px solid;
+  border: 0.2vw solid;
+
+  /* Centre the icon in the circle */
   display: flex;
   justify-content: center;
   align-items: center;
 
+  /* Centre the marker on the top-left corner, so that coordinates are correct */
   position: relative;
-  top: -1.5rem;
-  left: -1.5rem;
+  top: -1.5vw;
+  left: -1.5vw;
+
+  animation: end-hover-animation 0.1s forwards;
+}
+
+@keyframes hover-animation {
+  100% {
+    transform: scale(2);
+    z-index: 1;
+    box-shadow: 0.3vw 0.3vw 0.9vw grey;
+  }
+}
+
+@keyframes end-hover-animation {
+  0% {
+    transform: scale(2);
+    z-index: 1;
+    box-shadow: 0.2vw 0.2vw 0.6vw grey;
+  }
 }
 
 .team-marker:hover {
-  transform: scale(2);
-  z-index: 1;
+  animation: hover-animation 0.2s forwards;
 }

@@ -1,18 +1,28 @@
 .team-select-wrapper {
   margin: 50px auto;
   width: 90%;
+
+  color: white;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .team-select-heading {
-  color: white;
-  font-family: "Courier New", Courier, monospace;
   font-size: 2rem;
   text-align: center;
 }
 
+.team-select-summary {
+  font-size: 1.5rem;
+
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
 #map-wrapper {
   position: relative;
-  margin: 20px;
+  margin-top: 20px;
 }
 
 #usa-map {
@@ -45,6 +55,19 @@
   left: -1.5vw;
 
   animation: end-hover-animation 0.1s forwards;
+}
+
+.team-marker-inline {
+  background-color: white;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  border: 0.2rem solid;
+
+  /* Centre the icon in the circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes hover-animation {

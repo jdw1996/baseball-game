@@ -31,6 +31,10 @@ function TeamSelection() {
               backgroundColor: `var(--${teamsMap.get(awayTeam)?.colours.bg})`,
               borderColor: `var(--${teamsMap.get(awayTeam)?.colours.accent})`,
             }}
+            onClick={() => {
+              setAwayTeam(null);
+            }}
+            role="button"
           >
             {teamsMap.get(awayTeam)?.icon}
           </span>
@@ -45,6 +49,10 @@ function TeamSelection() {
               backgroundColor: `var(--${teamsMap.get(homeTeam)?.colours.bg})`,
               borderColor: `var(--${teamsMap.get(homeTeam)?.colours.accent})`,
             }}
+            onClick={() => {
+              setHomeTeam(null);
+            }}
+            role="button"
           >
             {teamsMap.get(homeTeam)?.icon}
           </span>

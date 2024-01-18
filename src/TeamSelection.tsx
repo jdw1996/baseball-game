@@ -85,6 +85,7 @@ function TeamSelection() {
 
           return (
             <div
+              key={id}
               className="team-wrapper"
               style={{ left: `${coords.x}%`, top: `${coords.y}%` }}
             >

@@ -96,7 +96,7 @@ export const teamsMap: Map<string, Team> = new Map([
       colours: {
         accent: "navy",
         bg: "red",
-        identifier: "red",
+        identifier: "navy",
         text: "red",
       },
       coords: { x: 89.3, y: 27.8 },

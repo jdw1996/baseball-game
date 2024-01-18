@@ -18,7 +18,6 @@ function TeamSelection() {
   const [homeTeam, setHomeTeam] = useState<string | null>(null);
   const [awayTeam, setAwayTeam] = useState<string | null>(null);
 
-  console.log(Object.entries(teamsMap));
   return (
     <div className="team-select-wrapper">
       <h2 className="team-select-heading">Select your teams</h2>
@@ -80,7 +79,6 @@ function TeamSelection() {
       <div id="map-wrapper">
         <img alt="Map of the United States" id="usa-map" src={UsaMap} />
         {Array.from(teamsMap.entries()).map(([id, team]) => {
-          console.log({ id, team });
           const { colours, coords } = team;
           const isHomeTeam = homeTeam === id;
           const isAwayTeam = awayTeam === id;

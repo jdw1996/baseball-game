@@ -69,6 +69,7 @@ function TeamSelection() {
           Swap home and away
         </button>
         <button
+          disabled={!homeTeam || !awayTeam}
           onClick={() => {
             alert("TODO: Not implemented!");
           }}

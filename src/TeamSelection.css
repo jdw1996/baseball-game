@@ -1,9 +1,15 @@
 .team-select-wrapper {
   margin: 50px auto;
-  width: 90%;
+  width: 70%;
 
   color: white;
   font-family: "FreeMono", "Courier New", Courier, monospace;
+}
+
+@media (max-width: 1500px) {
+  .team-select-wrapper {
+    width: 100%;
+  }
 }
 
 .team-select-heading {
@@ -18,11 +24,58 @@
   flex-direction: row;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1100px) {
+  .team-select-summary {
+    flex-direction: column;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.match-up-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+#list-wrapper {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  #list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+.team-button {
+  background-color: white;
+  font-size: 1.5rem;
+  border: 3px solid;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 #map-wrapper {
   position: relative;
-  margin-top: 20px;
+  margin-top: 2rem;
+}
+
+@media (max-width: 1100px) {
+  #map-wrapper {
+    display: none;
+  }
 }
 
 #usa-map {

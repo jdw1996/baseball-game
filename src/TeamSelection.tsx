@@ -22,43 +22,46 @@ function TeamSelection() {
     <div className="team-select-wrapper">
       <h2 className="team-select-heading">Select your teams</h2>
       <div className="team-select-summary">
-        <span>Today's match-up:</span>
-        {awayTeam ? (
-          <span
-            className="team-marker-inline"
-            style={{
-              backgroundColor: `var(--${teamsMap.get(awayTeam)?.colours.bg})`,
-              borderColor: `var(--${teamsMap.get(awayTeam)?.colours.accent})`,
-            }}
-            onClick={() => {
-              setAwayTeam(null);
-            }}
-            role="button"
-          >
-            {teamsMap.get(awayTeam)?.icon}
-          </span>
-        ) : (
-          <UnknownTeam />
-        )}
-        <span>@</span>
-        {homeTeam ? (
-          <span
-            className="team-marker-inline"
-            style={{
-              backgroundColor: `var(--${teamsMap.get(homeTeam)?.colours.bg})`,
-              borderColor: `var(--${teamsMap.get(homeTeam)?.colours.accent})`,
-            }}
-            onClick={() => {
-              setHomeTeam(null);
-            }}
-            role="button"
-          >
-            {teamsMap.get(homeTeam)?.icon}
-          </span>
-        ) : (
-          <UnknownTeam />
-        )}
+        <span className="nowrap">Today's match-up:</span>
+        <div className="match-up-wrapper">
+          {awayTeam ? (
+            <span
+              className="team-marker-inline"
+              style={{
+                backgroundColor: `var(--${teamsMap.get(awayTeam)?.colours.bg})`,
+                borderColor: `var(--${teamsMap.get(awayTeam)?.colours.accent})`,
+              }}
+              onClick={() => {
+                setAwayTeam(null);
+              }}
+              role="button"
+            >
+              {teamsMap.get(awayTeam)?.icon}
+            </span>
+          ) : (
+            <UnknownTeam />
+          )}
+          <span>@</span>
+          {homeTeam ? (
+            <span
+              className="team-marker-inline"
+              style={{
+                backgroundColor: `var(--${teamsMap.get(homeTeam)?.colours.bg})`,
+                borderColor: `var(--${teamsMap.get(homeTeam)?.colours.accent})`,
+              }}
+              onClick={() => {
+                setHomeTeam(null);
+              }}
+              role="button"
+            >
+              {teamsMap.get(homeTeam)?.icon}
+            </span>
+          ) : (
+            <UnknownTeam />
+          )}
+        </div>
         <button
+          className="nowrap"
           onClick={() => {
             const oldHomeTeam = homeTeam;
             setHomeTeam(awayTeam);
@@ -68,6 +71,7 @@ function TeamSelection() {
           Swap home and away
         </button>
         <button
+          className="nowrap"
           disabled={!homeTeam || !awayTeam}
           onClick={() => {
             alert("TODO: Not implemented!");
@@ -76,10 +80,46 @@ function TeamSelection() {
           Play ball!
         </button>
       </div>
+      <div id="list-wrapper">
+        {Array.from(teamsMap.entries()).map(([id, team]) => {
+          const { city, colours, icon } = team;
+          const isHomeTeam = homeTeam === id;
+          const isAwayTeam = awayTeam === id;
+
+          return (
+            <button
+              key={id}
+              className="team-button"
+              style={{
+                backgroundColor:
+                  isHomeTeam || isAwayTeam ? `var(--${colours.bg})` : "",
+                borderColor:
+                  isHomeTeam || isAwayTeam
+                    ? `var(--${colours.accent})`
+                    : `var(--${colours.identifier})`,
+                color: isHomeTeam || isAwayTeam ? `var(--${colours.text})` : "",
+              }}
+              onClick={() => {
+                if (isHomeTeam) {
+                  setHomeTeam(null);
+                } else if (isAwayTeam) {
+                  setAwayTeam(null);
+                } else if (homeTeam === null) {
+                  setHomeTeam(id);
+                } else if (awayTeam === null) {
+                  setAwayTeam(id);
+                }
+              }}
+            >
+              {icon} {city}
+            </button>
+          );
+        })}
+      </div>
       <div id="map-wrapper">
         <img alt="Map of the United States" id="usa-map" src={UsaMap} />
         {Array.from(teamsMap.entries()).map(([id, team]) => {
-          const { colours, coords } = team;
+          const { colours, coords, icon } = team;
           const isHomeTeam = homeTeam === id;
           const isAwayTeam = awayTeam === id;
 
@@ -112,7 +152,7 @@ function TeamSelection() {
                   }
                 }}
               >
-                {team.icon}
+                {icon}
               </div>
             </div>
           );

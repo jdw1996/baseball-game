@@ -139,6 +139,7 @@ function TeamSelection() {
                     isHomeTeam || isAwayTeam
                       ? `var(--${colours.accent})`
                       : `var(--${colours.identifier})`,
+                  zIndex: isHomeTeam || isAwayTeam ? 1 : 0,
                 }}
                 onClick={() => {
                   if (isHomeTeam) {
